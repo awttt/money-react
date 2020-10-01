@@ -3,35 +3,21 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
 } from "react-router-dom";
-import styled from 'styled-components';
-import Nav from './components/Nav';
-import Layout from './components/Layout';
-
-const Wrapper = styled.div`
-
-min-height: 100vh;
-display: flex;
-flex-direction: column;
 
 
-`
 
-const Main = styled.div`
+import Tags from './views/Tags';
+import Money from './views/Money';
+import Statistic from './views/Statistic';
 
-flex-grow: 1;
-overflow: auto;
-
-`
 
 
 function App() {
   return (
     <Router>
-      <Wrapper>
-        <Main>
+
         <Switch>
           <Route path="/tag">
             <Tags />
@@ -47,9 +33,6 @@ function App() {
             <NoMatch />
           </Route>
         </Switch>
-        </Main>
-        <Nav/>
-      </Wrapper>
     </Router>
 
   );
@@ -61,30 +44,10 @@ function NoMatch() {
     )
 }
 
-function Statistic() {
-  return (
-    <Layout>
-      <h2>Statistic</h2>
-    </Layout>
-  )
-}
 
-function Tags() {
-  return (
-    <Layout>
-      <h2>Tags</h2>
-    </Layout>
-  )
 
-}
 
-function Money() {
-  return (
-    <Layout>
-      <h2>Money</h2>
-    </Layout>
-  )
 
-}
+
 
 export default App;
