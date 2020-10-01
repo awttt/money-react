@@ -8,6 +8,7 @@ try {importAll(require.context('icons', true, /\.svg$/));} catch (error) {consol
 
 const NavWrapper = styled.div`
 box-shadow: 0 0 3px rgba(0,0,0,0.25);
+background: white;
 line-height: 24px;
   > ul{
    display: flex;

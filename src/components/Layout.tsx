@@ -2,10 +2,6 @@ import Nav from './Nav';
 import React from 'react';
 import styled from 'styled-components';
 
-type Props={
-  children:any
-}
-
 const Wrapper = styled.div`
 
 min-height: 100vh;
@@ -22,10 +18,10 @@ overflow: auto;
 
 `
 
-const Layout =(props:Props)=>{
+const Layout =(props:any)=>{
   return(
     <Wrapper>
-      <Main>
+      <Main  className={props.className}>
         <h2>
           {props.children}
         </h2>

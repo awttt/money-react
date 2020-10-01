@@ -5,17 +5,18 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-
-
-
 import Tags from './views/Tags';
 import Money from './views/Money';
 import Statistic from './views/Statistic';
+import styled from 'styled-components';
 
-
+const AppWrapper = styled.div`
+  color: #333;
+`;
 
 function App() {
   return (
+    <AppWrapper>
     <Router>
 
         <Switch>
@@ -34,7 +35,7 @@ function App() {
           </Route>
         </Switch>
     </Router>
-
+      </AppWrapper>
   );
 }
 
