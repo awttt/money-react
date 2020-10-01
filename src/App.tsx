@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import styled from 'styled-components';
 import Nav from './components/Nav';
+import Layout from './components/Layout';
 
 const Wrapper = styled.div`
 
@@ -61,15 +62,29 @@ function NoMatch() {
 }
 
 function Statistic() {
-  return <h2>Statistic</h2>;
+  return (
+    <Layout>
+      <h2>Statistic</h2>
+    </Layout>
+  )
 }
 
 function Tags() {
-  return <h2>Tags</h2>;
+  return (
+    <Layout>
+      <h2>Tags</h2>
+    </Layout>
+  )
+
 }
 
 function Money() {
-  return <h2>Money</h2>;
+  return (
+    <Layout>
+      <h2>Money</h2>
+    </Layout>
+  )
+
 }
 
 export default App;
