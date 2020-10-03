@@ -2,10 +2,6 @@ import styled from 'styled-components';
 import React, {useState} from 'react';
 import Icon from '../../components/icon';
 
-
-
-
-
 const Wrapper = styled.section`
   background: #FFFFFF; padding: 12px 16px;
   flex-grow: 1; display:flex; flex-direction: column;
@@ -29,10 +25,13 @@ const Wrapper = styled.section`
   }
 `;
 
-
-const TagsSection:React.FC = (props)=>{
+type Props = {
+  selected:string[]
+  onChange: (selected:string[])=>void;
+}
+const TagsSection:React.FC<Props> = (props)=>{
   const [tags,setTags]=useState<string[]>(['衣','食','行'])
-  const [selectedTags,setSelectedTags] = useState<string[]>([])
+  const selectedTags = props.selected
   const onAddTag =()=>{
    const tagName = window.prompt('新标签的名称为')
     if (tagName!==null){
@@ -42,9 +41,9 @@ const TagsSection:React.FC = (props)=>{
   const onToggleTag=(tag:string)=>{
     const index = selectedTags.indexOf(tag)
     if (index < 0){
-      setSelectedTags([...selectedTags,tag])
+      props.onChange([...selectedTags,tag])
     }else{
-      setSelectedTags(selectedTags.filter(t=>t!==tag))
+      props.onChange(selectedTags.filter(t=>t!==tag))
     }
   }
   return(
