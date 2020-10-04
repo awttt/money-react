@@ -20,15 +20,19 @@ const Wrapper = styled.section`
   }
 `;
 
-const NotesSection:React.FunctionComponent =(props)=>{
-  const [notes,setNotes]=useState('')
+type Props = {
+  value : string;
+  onChange:(value:string) => void;
+}
+
+const NotesSection:React.FunctionComponent<Props> =(props)=>{
+
   const refInput = useRef<HTMLInputElement>(null)
   const onBlur=()=>{
     if(refInput.current!==null){
-      setNotes(refInput.current.value)
+      props.onChange(refInput.current.value)
     }
   }
-  console.log(notes);
   return(
         <Wrapper>
         <label>
@@ -38,7 +42,7 @@ const NotesSection:React.FunctionComponent =(props)=>{
                  // onChange={(e)=>setNotes(e.target.value)}
                  // 受控组件写法
                ref={refInput}
-                 defaultValue={notes}
+                 defaultValue={props.value}
                  onBlur={onBlur}
                  // 非受控组件写法
           />

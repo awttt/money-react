@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import React, { useState} from 'react';
-import {type} from 'os';
 
 const Wrapper = styled.section`
   font-size: 24px;
@@ -25,20 +24,26 @@ const Wrapper = styled.section`
     }
   }
 `;
-const CategorySection:React.FC =()=>{
+
+type Props = {
+  value:'-' | '+'
+  onChange: (selected:'-' | '+')=>void;
+}
+
+const CategorySection:React.FC<Props> =(props)=>{
   const categoryMap = {'-':'支出','+':'收入'}
   type X = typeof categoryMap
   type Keys = keyof X
   // type Keys = keyof typeof categoryMap 计算出 categoryMap 的key的类型
-  const [category,setCategory] = useState('-')
-  const [categoryList] = useState<Keys[]>(['+','-'])
+
+  const [categoryList] = useState<Keys[]>(['-','+'])
 
   return(
     <Wrapper>
       <ul>
         {categoryList.map((c,key)=>
-          <li className={category===c ?'selected':''}
-              onClick={()=>{setCategory(c)}}
+          <li className={props.value === c ?'selected':''}
+              onClick={()=>{props.onChange(c)}}
               key={key}
           >{categoryMap[c]}</li>
         )}

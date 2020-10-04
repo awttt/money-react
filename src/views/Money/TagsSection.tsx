@@ -26,12 +26,12 @@ const Wrapper = styled.section`
 `;
 
 type Props = {
-  selected:string[]
+  value:string[]
   onChange: (selected:string[])=>void;
 }
 const TagsSection:React.FC<Props> = (props)=>{
   const [tags,setTags]=useState<string[]>(['衣','食','行'])
-  const selectedTags = props.selected
+  const selectedTags = props.value
   const onAddTag =()=>{
    const tagName = window.prompt('新标签的名称为')
     if (tagName!==null){
