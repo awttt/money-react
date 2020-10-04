@@ -27,7 +27,7 @@ const Wrapper = styled.section`
 
 type Props = {
   value:string[]
-  onChange: (selected:string[])=>void;
+  onChange: (selected:string[] )=>void;
 }
 const TagsSection:React.FC<Props> = (props)=>{
   const [tags,setTags]=useState<string[]>(['衣','食','行'])
