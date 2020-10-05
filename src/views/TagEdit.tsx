@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   border-radius:10px ;
   hr{
   margin-top: 100px;
+  background: black;
   }
 .icon{
     height:40px;

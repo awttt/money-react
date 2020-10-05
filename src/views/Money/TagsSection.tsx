@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, {useState} from 'react';
 import Icon from '../../components/icon';
-import {useTags} from '../../useTags';
+import {useTags} from '../../hooks/useTags';
 
 const Wrapper = styled.section`
   background: #FFFFFF; padding: 12px 16px;

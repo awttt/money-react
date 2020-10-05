@@ -5,6 +5,10 @@ import {TagsSection} from './Money/TagsSection';
 import {CategorySection} from './Money/CategorySection';
 import {NotesSection} from './Money/NotesSection';
 import {NumberPadSection} from './Money/NumberPadSection';
+import {useRecords} from '../hooks/useRecords';
+import {useTags} from '../hooks/useTags';
+
+
 
 const MyLayout = styled(Layout)`
   display:flex;
@@ -12,13 +16,16 @@ const MyLayout = styled(Layout)`
 `
 type Category = '-' | '+'
 
+const defaultFormData = {
+  tags: [] as string[],
+  note:'',
+  category :'-' as Category,
+  amount:0
+}
+
 function Money() {
-  const [selected,setSelected] = useState({
-    tags: [] as string[],
-    note:'',
-    category :'-' as Category,
-    amount:0
-  })
+  const [selected,setSelected] = useState(defaultFormData)
+  const {tags,setTags}=useTags()
   type Selected = typeof selected;
   const onChange = (obj:Partial<Selected>)=>{
     setSelected({
@@ -26,15 +33,18 @@ function Money() {
       ...obj
     })
   }
+  const {records,addRecords} = useRecords()
+  console.log(records);
+  const _submit =()=>{
+      addRecords(selected)
+      alert('记录成功')
+    setTags([...tags])
+  }
   return (
     <MyLayout>
-      {selected.tags.join(',')}
+      {JSON.stringify(selected)}
       <hr/>
-      {selected.note}
-      <hr/>
-      {selected.category}
-      <hr/>
-      {selected.amount}
+
       <TagsSection value={selected.tags}
                    onChange={(tags)=>onChange({tags})}/>
 
@@ -46,7 +56,7 @@ function Money() {
 
       <NumberPadSection value = {selected.amount}
                         onChange={(amount)=>onChange({amount})}
-                        onOk={()=>{}}
+                        onOk={_submit}
       />
 
 
