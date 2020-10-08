@@ -28,8 +28,10 @@ const Wrapper = styled.div`
 `
 
 type Props ={
-  tag:string
-
+  tag:string,
+  note:string,
+  amount:number,
+  category:'+'|'-'
 }
 
  const Tag:React.FC<Props> = (props)=> {
@@ -46,12 +48,12 @@ type Props ={
               {props.tag}
             </div>
             <div>
-              备注:
+              备注:{props.note}
             </div>
           </div>
         </div>
         <div className='right'>
-          -30
+          {props.category}{props.amount}
         </div>
       </div>
       <hr/>

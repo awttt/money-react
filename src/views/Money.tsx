@@ -34,12 +34,16 @@ function Money() {
     })
   }
   const {records,addRecords} = useRecords()
-  console.log(records);
   const _submit =()=>{
       addRecords(selected)
       alert('记录成功')
     setTags([...tags])
   }
+  // if (records[0]){
+  //   for (let i in records){
+  //     console.log(records[i].tags);
+  //   }
+  // }
   return (
     <MyLayout>
       {JSON.stringify(selected)}

@@ -124,7 +124,7 @@ const NumberPadSection:React.FC<Props> = (props)=>{
           break;
     }
   }
-  console.log(output);
+
   return(
     <Wrapper>
       <div  className="output">

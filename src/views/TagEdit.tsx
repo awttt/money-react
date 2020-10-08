@@ -43,7 +43,9 @@ button{
   font-size:20px;
 }
 `
-const TagEdit:React.FC =()=>{
+
+
+const TagEdit:React.FC =(props)=>{
     return(
       <Layout>
       <Wrapper>
